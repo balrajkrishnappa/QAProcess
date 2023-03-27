@@ -1,0 +1,11 @@
+Sub ConvertToCSV()
+    Dim wb As Workbook
+    Dim FileName As String
+    Dim ws As Worksheet
+    
+    Set wb = ActiveWorkbook
+    FileName = wb.FullName
+    Set ws = wb.Sheets(1)
+    
+    ws.SaveAs FileName:=Left(FileName, InStrRev(FileName, ".") - 1) & ".csv", FileFormat:=xlCSV
+End Sub
